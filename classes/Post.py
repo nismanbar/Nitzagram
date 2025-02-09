@@ -24,7 +24,7 @@ class Post:
     def AddLikes(self):
         self.__likes += 1
 
-    def display(self):
+    def Display(self):
         """
         Display the Post image/Text, description, location, likes and comments
         on screen
@@ -32,13 +32,22 @@ class Post:
         :return: None
         """
 
-        pass
-    def display_likes(self):
+        self.DisplayLocation()
+        #Todo: self.DisplayDescription()
+        self.DisplayLikes()
+        self.DisplayComments()
+
+    def DisplayLikes(self):
         likes = f"Liked by {self.__likes} users"
-        likes_font = pygame.font.SysFont('chalkduster.ttf', )
+        likes_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
+        screen.blit(likes_font.render(likes, True, BLACK(LIKE_TEXT_X_POS, LIKE_TEXT_Y_POS)))
 
+    def DisplayLocation(self):
+        loc = f"{self.__location}"
+        loc_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
+        screen.blit(loc_font.render(loc, True, BLACK(LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS)))
 
-    def display_comments(self):
+    def DisplayComments(self):
         """
         Display comments on post. In case there are more than 4
         comments, show only 4 comments chosen by reset_comments_display_index
@@ -48,8 +57,7 @@ class Post:
         position_index = self.comments_display_index
         # If there are more than 4 comments, print "view more comments"
         if len(self.__comments) > NUM_OF_COMMENTS_TO_DISPLAY:
-            comment_font = pygame.font.SysFont('chalkduster.ttf',
-                                               COMMENT_TEXT_SIZE)
+            comment_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
             view_more_comments_button = comment_font.render("view more comments", True, LIGHT_GRAY)
             screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS, VIEW_MORE_COMMENTS_Y_POS))
 
