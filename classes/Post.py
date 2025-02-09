@@ -1,16 +1,28 @@
 import pygame
 
+from classes import Comment
 from constants import *
 from helpers import screen
 
 
 class Post:
-    """
-    A class used to represent post on Nitzagram
-    """
-    def __init__(self): #TODO: add parameters
-        #TODO: write me!
-        pass
+
+    __username: str
+    __location: str
+    __description: str
+    __likes: int
+    __NumComments: int
+    __comments: list[Comment]
+
+    def __init__(self, name, loc, desc):
+        self.__username = name
+        self.__location = loc
+        self.__description = desc
+        self.__likes = 0
+        self.__NumComments = 0
+
+    def AddLikes(self):
+        self.__likes += 1
 
     def display(self):
         """
@@ -19,8 +31,11 @@ class Post:
 
         :return: None
         """
-        # TODO: write me!
+
         pass
+    def display_likes(self):
+        likes = f"Liked by {self.__likes} users"
+        likes_font = pygame.font.SysFont('chalkduster.ttf', )
 
 
     def display_comments(self):
@@ -32,19 +47,17 @@ class Post:
         """
         position_index = self.comments_display_index
         # If there are more than 4 comments, print "view more comments"
-        if len(self.comments) > NUM_OF_COMMENTS_TO_DISPLAY:
+        if len(self.__comments) > NUM_OF_COMMENTS_TO_DISPLAY:
             comment_font = pygame.font.SysFont('chalkduster.ttf',
                                                COMMENT_TEXT_SIZE)
-            view_more_comments_button = comment_font.render("view more comments",
-                                                            True, LIGHT_GRAY)
-            screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS,
-                                                    VIEW_MORE_COMMENTS_Y_POS))
+            view_more_comments_button = comment_font.render("view more comments", True, LIGHT_GRAY)
+            screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS, VIEW_MORE_COMMENTS_Y_POS))
 
         # Display 4 comments starting from comments_display_index
-        for i in range(0, len(self.comments)):
-            if position_index >= len(self.comments):
+        for i in range(0, len(self.__comments)):
+            if position_index >= len(self.__comments):
                 position_index = 0
-            self.comments[position_index].display(i)
+            self.__comments[position_index].display(i)
             position_index += 1
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
