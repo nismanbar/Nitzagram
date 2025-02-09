@@ -13,6 +13,7 @@ class Post:
     __likes: int
     __NumComments: int
     __comments: list[Comment]
+    __comments_display_index: int
 
     def __init__(self, name, loc, desc):
         self.__username = name
@@ -20,6 +21,7 @@ class Post:
         self.__description = desc
         self.__likes = 0
         self.__NumComments = 0
+        self.__comments_display_index = 0
 
     def AddLikes(self):
         self.__likes += 1
@@ -54,7 +56,7 @@ class Post:
 
         :return: None
         """
-        position_index = self.comments_display_index
+        position_index = self.__comments_display_index
         # If there are more than 4 comments, print "view more comments"
         if len(self.__comments) > NUM_OF_COMMENTS_TO_DISPLAY:
             comment_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
