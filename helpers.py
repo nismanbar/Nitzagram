@@ -33,22 +33,6 @@ def from_text_to_array(text):
     return text_array
 
 
-def mouse_in_button(button, mouse_pos):
-    """
-    The function get button and mouse press position on screen and return True
-    if mouse click on button
-    :param button: Button object
-        button on screen
-    :param mouse_pos: tuple
-        the x and y position of the mouse cursor
-    :return: boolean
-        True if mouse click on button, else False
-    """
-    if button.x_pos + button.width > mouse_pos[0] > button.x_pos and \
-            button.y_pos < mouse_pos[1] < button.y_pos + button.height:
-        return True
-
-
 def draw_comment_text_box():
     pygame.draw.rect(screen, GREY, pygame.Rect(
         VIEW_MORE_COMMENTS_X_POS, VIEW_MORE_COMMENTS_Y_POS, 300, 20))
