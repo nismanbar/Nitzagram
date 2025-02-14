@@ -1,5 +1,5 @@
 import pygame
-from helpers import screen, read_comment_from_user  # Make sure the helper function name is correct
+from helpers import screen, read_comment_from_user
 from constants import FIRST_COMMENT_X_POS, FIRST_COMMENT_Y_POS, COMMENT_LINE_HEIGHT, COMMENT_TEXT_SIZE, BLACK
 
 
