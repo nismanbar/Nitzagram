@@ -1,8 +1,8 @@
 import pygame
 from helpers import screen
 import buttons
-from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
-from classes import Post
+from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK, LIGHT_GRAY, GREY
+from classes import ImagePost, TextPost
 
 
 def main():
@@ -13,7 +13,13 @@ def main():
     background = pygame.image.load('Images/background.png')
     background = pygame.transform.scale(background, (WINDOW_WIDTH, WINDOW_HEIGHT))
 
-    post = Post.Post('bar', 'ashkelon', 'test')
+    post1 = TextPost.TextPost("Test", LIGHT_GRAY, GREY, "bar", "ashkelon", "test")
+    post2 = ImagePost.ImagePost('Images/noa_kirel.jpg', "liron", "ashkelon", "test")
+    post3 = ImagePost.ImagePost('Images/ronaldo.jpg', "liron", "ashkelon", "test")
+
+    p = [post1, post2, post3]
+    cnt = 0
+    post = p[cnt]
 
     running = True
     while running:
@@ -23,6 +29,13 @@ def main():
 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
+                if buttons.click_post_button.is_hovered(mouse_pos):
+                    if cnt >= len(p) - 1:
+                        cnt = 0
+                    else:
+                        cnt += 1
+                    post = p[cnt]
+
                 if buttons.like_button.is_hovered(mouse_pos):
                     post.AddLikes()
 

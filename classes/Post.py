@@ -45,19 +45,19 @@ class Post:
         screen.blit(render, (LIKE_TEXT_X_POS, LIKE_TEXT_Y_POS))
 
     def DisplayLocation(self):
-        loc = f"{self.__location}"
+        loc = self.__location
         loc_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
         render = loc_font.render(loc, True, BLACK)
         screen.blit(render, (LOCATION_TEXT_X_POS, LOCATION_TEXT_Y_POS))
 
     def DisplayDescription(self):
-        desc = f"{self.__description}"
+        desc = self.__description
         desc_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
         render = desc_font.render(desc, True, BLACK)
         screen.blit(render, (DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS))
 
     def DisplayUserName(self):
-        name = f"{self.__username}"
+        name = self.__username
         name_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
         render = name_font.render(name, True, BLACK)
         screen.blit(render, (USER_NAME_X_POS, USER_NAME_Y_POS))
@@ -77,12 +77,6 @@ class Post:
                 break
 
     def view_more_comments(self):
-        """
-        Changes the 4 comments that the user see by changing the start index
-        of comments.
-
-        :return: None
-        """
         if self.__comments_display_index >= len(self.__comments) - 1:
             self.__comments_display_index = 0
         else:
