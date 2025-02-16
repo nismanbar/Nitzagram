@@ -14,8 +14,8 @@ def main():
     background = pygame.transform.scale(background, (WINDOW_WIDTH, WINDOW_HEIGHT))
 
     post1 = TextPost.TextPost("Test", LIGHT_GRAY, GREY, "bar", "ashkelon", "test")
-    post2 = ImagePost.ImagePost('Images/noa_kirel.jpg', "liron", "ashkelon", "test")
-    post3 = ImagePost.ImagePost('Images/ronaldo.jpg', "liron", "ashkelon", "test")
+    post2 = ImagePost.ImagePost('Images/noa_kirel.jpg', "liron", "ashkelon", "its working")
+    post3 = ImagePost.ImagePost('Images/ronaldo.jpg', "liron", "ashkelon", ":D")
 
     p = [post1, post2, post3]
     cnt = 0
