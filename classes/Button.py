@@ -1,8 +1,4 @@
 class Button:
-    """
-    A class used to represent a Button on the screen.
-    This version is invisible—it doesn't draw any rectangle.
-    """
     def __init__(self, x_pos, y_pos, width, height):
         self.x_pos = x_pos
         self.y_pos = y_pos

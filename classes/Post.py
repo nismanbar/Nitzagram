@@ -68,8 +68,6 @@ class Post:
             comment_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
             view_more_comments_button = comment_font.render("view more comments", True, LIGHT_GRAY)
             screen.blit(view_more_comments_button, (VIEW_MORE_COMMENTS_X_POS, VIEW_MORE_COMMENTS_Y_POS))
-
-        # Display 4 comments starting from comments_display_index
         for i in range(0, len(self.__comments)):
             if position_index >= len(self.__comments):
                 position_index = 0
@@ -77,6 +75,6 @@ class Post:
             position_index += 1
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
+
     def MoreComments(self):
         pass
-
