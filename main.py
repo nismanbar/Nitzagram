@@ -1,8 +1,7 @@
 import pygame
 from helpers import screen
 from constants import WINDOW_WIDTH, WINDOW_HEIGHT, BLACK
-from TextPost import *
-
+from classes import TextPost
 def main():
     # Set up the game display, clock and headline
     pygame.init()
@@ -18,6 +17,8 @@ def main():
                                         (WINDOW_WIDTH, WINDOW_HEIGHT))
 
     # TODO: add a post here
+    #Text, TextColor, BackgroundColor, name, loc, desc
+    post = TextPost("I love Israel","WHITE","BLUE","Sagi Katan","Ashkelon","Love my country")
 
 
     running = True
@@ -31,6 +32,7 @@ def main():
         # Display the background, presented Image, likes, comments, tags and location(on the Image)
         screen.fill(BLACK)
         screen.blit(background, (0, 0))
+        screen.blit(post)
 
         # Update display - without input update everything
         pygame.display.update()

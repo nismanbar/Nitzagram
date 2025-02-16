@@ -1,6 +1,6 @@
 from constants import *
-from Post import *
-
+from classes import Post
+import pygame
 
 class TextPost(Post):
 
@@ -14,7 +14,7 @@ class TextPost(Post):
         super().Display()
         desc = f"{self.__description}"
         square = pygame.Rect(POST_X_POS, POST_Y_POS, POST_WIDTH, POST_HEIGHT)
-        pygame.draw.rect(screen, self.BackgroundColor, square)
+        pygame.draw.rect(self.BackgroundColor, square)
         font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
         text = font.render(desc, True, BLACK)
 
