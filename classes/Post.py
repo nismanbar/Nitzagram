@@ -56,7 +56,7 @@ class Post:
         render = desc_font.render(desc, True, BLACK)
         screen.blit(render, (DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS))
 
-    def DisplayUserName(self):
+    def DisplayUserName(self):dd
         name = f"{self.__username}"
         name_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
         render = name_font.render(name, True, BLACK)
