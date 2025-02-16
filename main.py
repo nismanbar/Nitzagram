@@ -30,8 +30,7 @@ def main():
                     post.AddComment()
 
                 if buttons.view_more_comments_button.is_hovered(mouse_pos):
-                    # Todo: make this actually do what is needs to do
-                    pass
+                    post.view_more_comments()
 
         screen.fill(BLACK)
         screen.blit(background, (0, 0))

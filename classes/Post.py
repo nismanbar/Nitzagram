@@ -56,7 +56,7 @@ class Post:
         render = desc_font.render(desc, True, BLACK)
         screen.blit(render, (DESCRIPTION_TEXT_X_POS, DESCRIPTION_TEXT_Y_POS))
 
-    def DisplayUserName(self):dd
+    def DisplayUserName(self):
         name = f"{self.__username}"
         name_font = pygame.font.SysFont('chalkduster.ttf', COMMENT_TEXT_SIZE)
         render = name_font.render(name, True, BLACK)
@@ -76,5 +76,14 @@ class Post:
             if i >= NUM_OF_COMMENTS_TO_DISPLAY - 1:
                 break
 
-    def MoreComments(self):
-        pass
+    def view_more_comments(self):
+        """
+        Changes the 4 comments that the user see by changing the start index
+        of comments.
+
+        :return: None
+        """
+        if self.__comments_display_index >= len(self.__comments) - 1:
+            self.__comments_display_index = 0
+        else:
+            self.__comments_display_index += 1
